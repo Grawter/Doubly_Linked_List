@@ -11,7 +11,7 @@ public:
 	
 	int Getsize() { return size; } // кол-во хранилищ 
 
-	T &  operator[](const int index); //оператор [] 
+	T & operator[](const int index); //оператор [] 
 	
 	void push_back(T data); // добавить в элемент в конец
 
@@ -112,7 +112,6 @@ void List<T>::push_back(T data) // добавить в элемент в кон�
 	 Node <T> *temp = tail;
 		tail = new Node <T>(data, nullptr, tail);
 		temp->pNext = tail;
-		int g = 89;
 	}
 	else if (size == 1) // если есть 1 хранилще
 		{
@@ -259,6 +258,7 @@ void List<T>::removeAT(int index) // удалить указанный элем�
 			{
 				(current->pBack)->pNext = current->pNext;
 				(current->pNext)->pBack = current->pBack;
+				delete current;
 				break;
 			}
 			current = current->pBack;
